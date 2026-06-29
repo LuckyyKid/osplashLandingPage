@@ -36,36 +36,64 @@
                 type="text"
                 name="address"
                 [(ngModel)]="addressInput"
-                placeholder="Entrez votre adresse"
+                placeholder="Adresse complète, ville ou code postal"
                 aria-label="Entrez votre adresse"
               />
             </div>
             <button
-              class="rounded-full bg-osplashBlue px-6 py-4 text-sm font-bold text-white shadow-lg transition hover:bg-[#005F8F] focus:outline-none focus:ring-4 focus:ring-osplashCyan/35"
+              class="rounded-full bg-osplashBlue px-6 py-4 text-sm font-bold text-white shadow-lg transition hover:bg-[#005F8F] focus:outline-none focus:ring-4 focus:ring-osplashCyan/35 disabled:cursor-wait disabled:opacity-70 sm:whitespace-nowrap"
               type="submit"
+              [disabled]="isCheckingAddress"
             >
-              Vérifier ma zone
+              @if (isCheckingAddress) {
+                Vérification...
+              } @else {
+                Vérifier ma zone
+              }
             </button>
           </div>
-
-          @if (serviceAreaStatus === 'available') {
-            <p class="mt-3 rounded-2xl border border-osplashGreen/30 bg-osplashGreen/15 px-4 py-3 text-sm font-medium text-white">
-              Bonne nouvelle — O'Splash dessert votre secteur. Vous pouvez demander une soumission.
-            </p>
-          } @else if (serviceAreaStatus === 'unavailable') {
-            <p class="mt-3 rounded-2xl border border-white/20 bg-white/12 px-4 py-3 text-sm font-medium text-white">
-              Votre adresse semble être hors de notre zone actuelle. Contactez-nous quand même, certaines demandes peuvent être évaluées manuellement.
+          @if (serviceAreaResult) {
+            <p
+              class="mt-3 flex items-start gap-3 rounded-2xl border px-4 py-3 text-sm font-semibold shadow-lg backdrop-blur-md"
+              [class.border-osplashGreen]="serviceAreaResult.isServed"
+              [class.bg-green-50]="serviceAreaResult.isServed"
+              [class.text-green-900]="serviceAreaResult.isServed"
+              [class.border-red-200]="!serviceAreaResult.isServed"
+              [class.bg-red-50]="!serviceAreaResult.isServed"
+              [class.text-red-900]="!serviceAreaResult.isServed"
+            >
+              <span
+                class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full text-xs"
+                [class.bg-osplashGreen]="serviceAreaResult.isServed"
+                [class.text-white]="serviceAreaResult.isServed"
+                [class.bg-red-100]="!serviceAreaResult.isServed"
+                [class.text-red-700]="!serviceAreaResult.isServed"
+                aria-hidden="true"
+              >
+                @if (serviceAreaResult.isServed) {
+                  ✓
+                } @else {
+                  !
+                }
+              </span>
+              <span>
+                {{ serviceAreaResult.message }}
+                @if (serviceAreaResult.matchedSector) {
+                  <span class="font-bold">Secteur détecté : {{ serviceAreaResult.matchedSector }}.</span>
+                }
+                @if (serviceAreaResult.isServed) {
+                  <a
+                    href="#services"
+                    class="mt-3 inline-flex rounded-full bg-osplashBlue px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#005F8F] focus:outline-none focus:ring-4 focus:ring-osplashCyan/30"
+                  >
+                    Voir nos services
+                  </a>
+                }
+              </span>
             </p>
           }
         </form>
 
-        <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
-          <a href="#services" class="text-sm font-semibold text-white underline decoration-osplashCyan/70 underline-offset-8 transition hover:text-osplashCyan">
-            Voir nos services
-          </a>
-          <span class="hidden h-1 w-1 rounded-full bg-white/35 sm:block"></span>
-          <p class="text-sm font-medium text-white/78">★★★★★ 4.9/5 basé sur les avis clients</p>
-        </div>
       </div>
 
       <aside class="mb-2 rounded-lg border border-white/25 bg-white/14 p-5 shadow-2xl backdrop-blur-xl sm:max-w-sm lg:mb-10">

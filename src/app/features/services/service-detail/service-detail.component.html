@@ -106,22 +106,19 @@
 
     <section class="bg-slate-50 px-5 py-20 sm:px-8 lg:px-10">
       <div class="mx-auto max-w-7xl">
-        <h2 class="text-4xl font-semibold text-osplashDark">Zones de service pour {{ service.title }}</h2>
-        <p class="mt-5 max-w-3xl text-base leading-8 text-slate-600">{{ service.serviceAreas.paragraph }}</p>
-        <p class="mt-6 text-sm leading-7 text-slate-700">
-          Régions desservies :
-          @for (region of service.serviceAreas.regions; track region; let last = $last) {
-            <strong>{{ region }}</strong>@if (!last) {, }
-          }
-        </p>
-        <div class="mt-7 flex flex-wrap gap-3">
-          @for (city of service.serviceAreas.cities; track city) {
-            <span class="rounded-full border border-osplashBorder bg-white px-4 py-2 text-sm font-medium text-slate-700">{{ city }}</span>
-          }
+        <div class="rounded-lg border border-osplashBorder bg-white p-6 shadow-sm sm:p-8">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-osplashBlue">Secteurs desservis</p>
+          <h2 class="mt-4 text-4xl font-semibold text-osplashDark">Zones de service pour {{ service.title }}</h2>
+          <p class="mt-5 max-w-3xl text-base leading-8 text-slate-600">{{ service.serviceAreas.paragraph }}</p>
+          <div class="mt-7 flex flex-wrap gap-3">
+            @for (sector of servedSectors; track sector.name) {
+              <span class="rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-800">{{ sector.name }}</span>
+            }
+          </div>
+          <p class="mt-6 text-sm font-medium text-slate-600">
+            Vous êtes situé ailleurs ? Contactez-nous pour vérifier si nous desservons votre secteur.
+          </p>
         </div>
-        <p class="mt-6 text-sm font-medium text-slate-600">
-          Vous êtes situé ailleurs ? Contactez-nous pour vérifier si nous desservons votre secteur.
-        </p>
       </div>
     </section>
 

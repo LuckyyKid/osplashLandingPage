@@ -1,0 +1,116 @@
+{
+  "secteursServis": [
+    {
+      "name": "Québec City",
+      "normalizedName": "quebec city",
+      "type": "city",
+      "region": "Capitale-Nationale",
+      "aliases": ["quebec", "québec", "ville de quebec", "ville de québec"]
+    },
+    {
+      "name": "Donnacona",
+      "normalizedName": "donnacona",
+      "type": "city",
+      "region": "Capitale-Nationale",
+      "aliases": []
+    },
+    {
+      "name": "Neuville",
+      "normalizedName": "neuville",
+      "type": "city",
+      "region": "Capitale-Nationale",
+      "aliases": []
+    },
+    {
+      "name": "Saint-Augustin-de-Desmaures",
+      "normalizedName": "saint augustin de desmaures",
+      "type": "city",
+      "region": "Capitale-Nationale",
+      "aliases": ["st augustin de desmaures", "st-augustin-de-desmaures"]
+    },
+    {
+      "name": "Sainte-Catherine-de-la-Jacques-Cartier",
+      "normalizedName": "sainte catherine de la jacques cartier",
+      "type": "city",
+      "region": "Capitale-Nationale",
+      "aliases": ["ste catherine de la jacques cartier", "ste-catherine-de-la-jacques-cartier"]
+    },
+    {
+      "name": "Fossambault-sur-le-Lac",
+      "normalizedName": "fossambault sur le lac",
+      "type": "city",
+      "region": "Capitale-Nationale",
+      "aliases": []
+    },
+    {
+      "name": "Pont-Rouge",
+      "normalizedName": "pont rouge",
+      "type": "city",
+      "region": "Capitale-Nationale",
+      "aliases": []
+    },
+    {
+      "name": "Portneuf",
+      "normalizedName": "portneuf",
+      "type": "city",
+      "region": "Capitale-Nationale",
+      "aliases": []
+    },
+    {
+      "name": "Lévis",
+      "normalizedName": "levis",
+      "type": "city",
+      "region": "Chaudière-Appalaches",
+      "aliases": ["levi"]
+    },
+    {
+      "name": "Shannon",
+      "normalizedName": "shannon",
+      "type": "city",
+      "region": "Capitale-Nationale",
+      "aliases": []
+    },
+    {
+      "name": "Saint-Gabriel-de-Valcartier",
+      "normalizedName": "saint gabriel de valcartier",
+      "type": "city",
+      "region": "Capitale-Nationale",
+      "aliases": ["st gabriel de valcartier", "st-gabriel-de-valcartier"]
+    },
+    {
+      "name": "Stoneham-et-Tewkesbury",
+      "normalizedName": "stoneham et tewkesbury",
+      "type": "city",
+      "region": "Capitale-Nationale",
+      "aliases": ["stoneham"]
+    },
+    {
+      "name": "Saint-Raymond",
+      "normalizedName": "saint raymond",
+      "type": "city",
+      "region": "Capitale-Nationale",
+      "aliases": ["st raymond", "st-raymond"]
+    },
+    {
+      "name": "Saint-Lambert-de-Lauzon",
+      "normalizedName": "saint lambert de lauzon",
+      "type": "city",
+      "region": "Chaudière-Appalaches",
+      "aliases": ["st lambert de lauzon", "st-lambert-de-lauzon"]
+    },
+    {
+      "name": "Estrie",
+      "normalizedName": "estrie",
+      "type": "region",
+      "region": "Estrie",
+      "aliases": []
+    },
+    {
+      "name": "Drummondville",
+      "normalizedName": "drummondville",
+      "type": "city",
+      "region": "Centre-du-Québec",
+      "aliases": []
+    }
+  ]
+}

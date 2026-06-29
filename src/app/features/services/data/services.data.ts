@@ -1,3 +1,5 @@
+import secteursServisData from '../../../data/secteurs-servis.json';
+
 export interface ServiceDetail {
   slug: string;
   title: string;
@@ -24,22 +26,11 @@ export interface ServiceDetail {
   ctaLabel: string;
 }
 
+const secteursServis = secteursServisData.secteursServis;
+
 const serviceAreas = {
-  regions: ['Estrie', 'Montérégie', 'Grand Montréal', 'Centre-du-Québec'],
-  cities: [
-    'Sherbrooke',
-    'Magog',
-    'Granby',
-    'Montréal',
-    'Longueuil',
-    'Brossard',
-    'Drummondville',
-    'Saint-Hyacinthe',
-    'Laval',
-    'Terrebonne',
-    'Repentigny',
-    'Blainville',
-  ],
+  regions: Array.from(new Set(secteursServis.map((sector) => sector.region).filter((region): region is string => Boolean(region)))),
+  cities: secteursServis.map((sector) => sector.name),
 };
 
 export const SERVICES: ServiceDetail[] = [
@@ -58,12 +49,12 @@ export const SERVICES: ServiceDetail[] = [
       'Chaque intervention est adaptée au type de fenestration, aux cadrages et aux besoins réels de votre propriété.',
     ],
     galleryImages: ['/assets/images/lavagedevitre.webp', '/assets/images/goutiere.webp', '/assets/images/pression.webp'],
-    included: ['Lavage intérieur et extérieur', 'Cadrages lavés en profondeur', 'Finition sans traces', 'Service ponctuel ou récurrent'],
+    included: ['Lavage intérieur et extérieur', 'Cadrages seuils rails mécanismes en profondeur', 'Finition sans traces', 'Service ponctuel ou récurrent'],
     benefits: ['Maison plus lumineuse', 'Résultat professionnel', 'Gain de temps', 'Entretien simplifié'],
     serviceAreas: {
       ...serviceAreas,
       paragraph:
-        'O’Splash accompagne les propriétaires résidentiels dans plusieurs secteurs du sud du Québec, avec une approche flexible selon la fréquence et la saison.',
+        'O’Splash accompagne les propriétaires résidentiels dans votre zones, avec une approche flexible selon la fréquence et la saison.',
     },
     faqs: [
       {
@@ -83,7 +74,7 @@ export const SERVICES: ServiceDetail[] = [
         answer: 'Notre méthode vise une finition claire et sans traces, avec une attention particulière aux cadrages et aux coins.',
       },
     ],
-    relatedServiceSlugs: ['nettoyage-de-gouttieres', 'blanchiment-de-gouttieres', 'lavage-a-pression'],
+    relatedServiceSlugs: ['nettoyage-de-gouttieres', 'lavage-a-pression'],
     ctaLabel: 'Demander une soumission gratuite',
   },
   {
@@ -104,7 +95,7 @@ export const SERVICES: ServiceDetail[] = [
     included: [
       'Grandes surfaces vitrées',
       'Vitrines de commerces',
-      'Cadrages lavés en profondeur',
+      'Cadrages seuils rails mécanismes en profondeur',
       'Entretien régulier disponible',
       'Horaires flexibles',
     ],
@@ -185,74 +176,21 @@ export const SERVICES: ServiceDetail[] = [
         answer: 'Oui, c’est souvent une combinaison pratique lors d’un entretien extérieur saisonnier.',
       },
     ],
-    relatedServiceSlugs: ['blanchiment-de-gouttieres', 'lavage-de-vitres-residentiel', 'lavage-a-pression'],
-    ctaLabel: 'Demander une soumission gratuite',
-  },
-  {
-    slug: 'blanchiment-de-gouttieres',
-    title: 'Blanchiment de gouttières',
-    shortDescription:
-      'Redonnez l’éclat d’origine à vos gouttières grâce à un nettoyage extérieur spécialisé.',
-    heroImage: '/assets/images/goutiere.webp',
-    cardImage: '/assets/images/goutiere.webp',
-    icon: '◌',
-    category: 'Gouttières',
-    aboutTitle: 'Une finition extérieure plus propre et plus uniforme.',
-    aboutParagraphs: [
-      'Le blanchiment de gouttières cible les traces noires et saletés incrustées visibles sur la surface extérieure.',
-      'Ce service complète très bien un lavage de vitres ou un entretien extérieur lorsque l’apparence de la façade compte autant que la propreté.',
-    ],
-    galleryImages: ['/assets/images/goutiere.webp', '/assets/images/lavagedevitre.webp', '/assets/images/pression.webp'],
-    included: [
-      'Nettoyage extérieur des gouttières',
-      'Traitement des marques noires',
-      'Finition propre et uniforme',
-      'Service complémentaire au nettoyage régulier',
-    ],
-    benefits: [
-      'Améliore l’apparence de la maison',
-      'Redonne de la valeur visuelle à la façade',
-      'Complète parfaitement un lavage de vitres',
-      'Résultat visible rapidement',
-    ],
-    serviceAreas: {
-      ...serviceAreas,
-      paragraph:
-        'Le blanchiment de gouttières est disponible dans nos principaux secteurs de service et peut être combiné à d’autres interventions extérieures.',
-    },
-    faqs: [
-      {
-        question: 'Est-ce différent du nettoyage de gouttières ?',
-        answer: 'Oui. Le nettoyage retire les débris à l’intérieur; le blanchiment traite surtout l’apparence extérieure visible.',
-      },
-      {
-        question: 'Est-ce que toutes les marques disparaissent ?',
-        answer: 'La majorité des traces s’atténuent fortement, mais le résultat dépend de l’âge, du matériau et de l’état initial.',
-      },
-      {
-        question: 'Peut-on combiner ce service avec un lavage de vitres ?',
-        answer: 'Oui, c’est une combinaison recommandée pour améliorer l’apparence générale de la façade.',
-      },
-      {
-        question: 'Le produit utilisé abîme-t-il la peinture ?',
-        answer: 'La méthode est adaptée aux surfaces courantes, avec une approche prudente selon l’état du revêtement.',
-      },
-    ],
-    relatedServiceSlugs: ['nettoyage-de-gouttieres', 'lavage-de-vitres-residentiel', 'lavage-a-pression'],
+    relatedServiceSlugs: ['lavage-de-vitres-residentiel', 'lavage-a-pression'],
     ctaLabel: 'Demander une soumission gratuite',
   },
   {
     slug: 'lavage-a-pression',
-    title: 'Lavage à pression',
+    title: 'Lavage à haute et basse pression',
     shortDescription:
-      'Redonnez vie à vos surfaces extérieures : terrasses, entrées, revêtements, pavés, escaliers et plus encore.',
+      'Redonner vie aux revêtements, gouttières extérieures, fascias et soffites. Un nettoyage pour vos façades.',
     heroImage: '/assets/images/pression.webp',
     cardImage: '/assets/images/pression.webp',
     icon: '◒',
     category: 'Surfaces extérieures',
-    aboutTitle: 'Un nettoyage extérieur puissant, appliqué avec la bonne pression.',
+    aboutTitle: 'Un nettoyage pour vos façades',
     aboutParagraphs: [
-      'Le lavage à pression permet de retirer la saleté accumulée, les dépôts et les traces visibles sur plusieurs surfaces extérieures.',
+      'Le lavage à haute et basse pression permet de retirer la saleté accumulée, les dépôts et les traces visibles sur plusieurs surfaces extérieures.',
       'Nous ajustons l’approche selon le matériau afin de viser un résultat propre sans agressivité inutile.',
     ],
     galleryImages: ['/assets/images/pression.webp', '/assets/images/lavagedevitre.webp', '/assets/images/goutiere.webp'],
@@ -266,11 +204,11 @@ export const SERVICES: ServiceDetail[] = [
     serviceAreas: {
       ...serviceAreas,
       paragraph:
-        'Nos interventions de lavage à pression sont offertes dans plusieurs secteurs résidentiels et commerciaux selon l’accès, la surface et la saison.',
+        'Nos interventions de lavage à haute et basse pression sont offertes dans plusieurs secteurs résidentiels et commerciaux selon l’accès, la surface et la saison.',
     },
     faqs: [
       {
-        question: 'Toutes les surfaces peuvent-elles être lavées à pression ?',
+        question: 'Toutes les surfaces peuvent-elles être lavées à haute et basse pression ?',
         answer: 'Non. Certaines surfaces demandent une pression réduite ou une méthode différente. Nous adaptons l’approche au matériau.',
       },
       {
@@ -279,14 +217,14 @@ export const SERVICES: ServiceDetail[] = [
       },
       {
         question: 'Le résultat est-il visible rapidement ?',
-        answer: 'Oui, le lavage à pression produit généralement un changement visible dès l’intervention.',
+        answer: 'Oui, le lavage à haute et basse pression produit généralement un changement visible dès l’intervention.',
       },
       {
         question: 'Offrez-vous ce service aux commerces ?',
         answer: 'Oui, le service peut être adapté aux besoins résidentiels et commerciaux.',
       },
     ],
-    relatedServiceSlugs: ['lavage-de-vitres-residentiel', 'nettoyage-de-gouttieres', 'blanchiment-de-gouttieres'],
+    relatedServiceSlugs: ['lavage-de-vitres-residentiel', 'nettoyage-de-gouttieres'],
     ctaLabel: 'Demander une soumission gratuite',
   },
 ];

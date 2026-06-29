@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+
+import { SERVICES } from '../../../features/services/data/services.data';
+import { ServiceAreaService } from '../../services/service-area.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,12 +11,12 @@ import { RouterLink } from '@angular/router';
   templateUrl: './footer.component.html',
 })
 export class FooterComponent {
-  readonly services = [
-    { label: 'Lavage de vitres résidentiel', route: '/services/lavage-de-vitres-residentiel' },
-    { label: 'Lavage de vitres commercial', route: '/services/lavage-de-vitres-commercial' },
-    { label: 'Nettoyage de gouttières', route: '/services/nettoyage-de-gouttieres' },
-    { label: 'Lavage à pression', route: '/services/lavage-a-pression' },
-  ];
+  private readonly serviceAreaService = inject(ServiceAreaService);
 
-  readonly areas = ['Montréal', 'Laval', 'Longueuil', 'Brossard', 'Terrebonne', 'Saint-Jérôme'];
+  readonly services = SERVICES.map((service) => ({
+    label: service.title,
+    route: `/services/${service.slug}`,
+  }));
+
+  readonly areas = this.serviceAreaService.getServedSectors().map((sector) => sector.name);
 }
