@@ -10,18 +10,22 @@ export const routes: Routes = [
   {
     path: '',
     component: LandingPageComponent,
+    title: "O'Splash | Lavage de vitres, gouttières et pression",
   },
   {
     path: 'about',
     component: AboutPageComponent,
+    title: "À propos | O'Splash",
   },
   {
     path: 'careers',
     component: CareersPageComponent,
+    title: "Carrières | O'Splash",
   },
   {
     path: 'services',
     component: ServicesPageComponent,
+    title: "Services de nettoyage extérieur | O'Splash",
   },
   {
     path: 'services/lavage-de-vitres',
