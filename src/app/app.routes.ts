@@ -10,7 +10,7 @@ export const routes: Routes = [
   {
     path: '',
     component: LandingPageComponent,
-    title: "O'Splash | Lavage de vitres, gouttières et pression",
+    title: "Lavage à pression | O'Splash",
   },
   {
     path: 'about',
