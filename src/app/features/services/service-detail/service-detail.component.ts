@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { FooterComponent } from '../../../core/components/footer/footer.component';
@@ -16,7 +15,6 @@ import { ServiceDetail, getRelatedServices, getServiceBySlug } from '../data/ser
 export class ServiceDetailComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly serviceAreaService = inject(ServiceAreaService);
-  private readonly title = inject(Title);
 
   service?: ServiceDetail;
   relatedServices: ServiceDetail[] = [];
@@ -30,7 +28,6 @@ export class ServiceDetailComponent implements OnInit {
       const service = getServiceBySlug(params.get('slug'));
       this.service = service;
       this.relatedServices = service ? getRelatedServices(service) : [];
-      this.title.setTitle(service ? `${service.title} | O'Splash` : "Service introuvable | O'Splash");
     });
   }
 }
