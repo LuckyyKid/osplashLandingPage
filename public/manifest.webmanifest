@@ -1,0 +1,22 @@
+{
+  "name": "O'Splash",
+  "short_name": "O'Splash",
+  "description": "Lavage à pression professionnel à Montréal. Terrasses, pavés, entrées, revêtements extérieurs et plus.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0077b6",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/assets/images/osplash-logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}
